@@ -25,7 +25,6 @@
   height: 70px;
   display: flex;
   align-items: center;
-}
 
 .header.scrolled {
   background-color: rgba(30, 41, 59, 0.98);
@@ -45,33 +44,25 @@
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--light);
-  text-decoration: none;
+  display: block;
+  height: 3rem;  
+  transition: all 0.3s ease;
   z-index: 1001;
 }
-
-.logo-icon {
-  background-color: var(--secondary);
-  padding: 0.4rem;
-  border-radius: 0.4rem;
-  display: flex;
-  transition: transform 0.3s;
+.logo-full {
+  height: 100%;  /* Logo will fill container height */
+  width: auto;   /* Maintain aspect ratio */
+  object-fit: contain;
+  /*filter: brightness(0) invert(1); /* Makes white logo - remove if colored */
+}
+.header.scrolled .logo {
+  height: 2.5rem;
+}
+.logo:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
 
-.header.scrolled .logo-icon {
-  transform: scale(0.9);
-}
-
-.logo-icon svg {
-  width: 1.2rem;
-  height: 1.2rem;
-  color: var(--dark);
-}
 
 /* Desktop Navigation */
 .nav-desktop {

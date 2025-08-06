@@ -22,14 +22,9 @@ const Header = () => {
     <>
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
-          <Link to="/" className="logo">
-            <div className="logo-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            Fotress
-          </Link>
+        <Link to="/" className="logo">
+            <img src="/images/C-LOGO.png" alt="Fortress"  className="logo-full" />
+         </Link>
 
           {/* Desktop Navigation */}
           <nav className={`nav-desktop ${mobileMenuOpen ? 'mobile-open' : ''}`}>
