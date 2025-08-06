@@ -45,7 +45,7 @@
 
 .logo {
   display: block;
-  height: 3rem;  
+  height: 3rem;  /* Control the container size */
   transition: all 0.3s ease;
   z-index: 1001;
 }
@@ -55,14 +55,23 @@
   object-fit: contain;
   /*filter: brightness(0) invert(1); /* Makes white logo - remove if colored */
 }
-.header.scrolled .logo {
-  height: 2.5rem;
-}
-.logo:hover {
-  opacity: 0.9;
-  transform: scale(1.02);
-}
 
+.logo-icon {
+  /*background-color: var(--secondary);*/
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  display: flex;
+  transition: transform 0.3s;
+  align-items: center;
+}
+}
+.logo-image {
+  height: 24px; 
+  width: auto; /* Maintain aspect ratio */
+}
+.header.scrolled .logo-icon {
+  transform: scale(0.9);
+}
 
 /* Desktop Navigation */
 .nav-desktop {
@@ -286,59 +295,76 @@
 }
 
 /* Company Info Section */
+/* Company Section with Logo */
 .footer__company {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.footer__logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.footer__logo-icon {
-  background-color: var(--primary-color);
-  color: var(--bg-dark);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.footer__description {
-  color: var(--text-muted);
-  line-height: 1.6;
-  font-size: 0.95rem;
   max-width: 300px;
 }
 
+.footer__logo {
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.footer__logo:hover {
+  transform: scale(1.03);
+}
+
+.logo__full {
+  height: auto;
+  max-width: 180px; /* Adjust based on your logo's aspect ratio */
+  width: 100%;
+  /*filter: brightness(0) invert(1); /* Makes logo white - remove if you want original colors */
+}
+
+.footer__description {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #b3b3b3;
+  font-size: 0.95rem;
+}
+
+/* Social Icons - Adjusted to match logo section */
 .footer__socials {
   display: flex;
   gap: 1rem;
-  margin-top: 0.5rem;
 }
 
 .footer__social-link {
-  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
   transition: all 0.3s ease;
-  display: inline-flex;
-  padding: 0.5rem;
 }
 
 .footer__social-link:hover {
-  color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
 .footer__social-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer__company {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .footer__logo {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer__socials {
+    justify-content: center;
+  }
 }
 
 /* Common Section Styles */

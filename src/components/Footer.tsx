@@ -11,9 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="footer__company">
             <div className="footer__logo">
-            <img src="/images/C-LOGO.png" alt="Fortress Company Logo" className="logo-image" />
-              {/*<span className="footer__logo-icon">⚡</span>
-              <span className="footer__logo-text">Fotress</span>*/}
+            <img src="/images/C-LOGO.png" alt="Fortress"  className="logo__full" />
             </div>
             <p className="footer__description">
               Your trusted partner for comprehensive tech, electrical, and ISP solutions in Kenya.
