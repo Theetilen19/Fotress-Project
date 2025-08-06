@@ -110,7 +110,7 @@
   
   .hero__text {
     max-width: 800px;
-    color: var(--primary-dark);
+    color: var(--primary);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 0.8s ease-out forwards;
   }

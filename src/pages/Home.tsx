@@ -34,31 +34,24 @@ const Home = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "James Kariuki",
+      name: "Tilen Ochieng",
       role: "Chief Technology Officer",
       image: "/images/team1.jpg",
       bio: "15+ years in network infrastructure and enterprise solutions"
     },
     {
       id: 2,
-      name: "Sarah Mwende",
+      name: "Job Oyamo",
       role: "Electrical Engineer",
       image: "/images/team2.jpg",
       bio: "Specialist in renewable energy and industrial electrical systems"
     },
     {
       id: 3,
-      name: "David Omondi",
-      role: "ISP Specialist",
+      name: "Elisha Okello",
+      role: "Project and Risk Manager",
       image: "/images/team3.jpg",
-      bio: "Expert in fiber optic deployments and wireless technologies"
-    },
-    {
-      id: 4,
-      name: "Grace Wambui",
-      role: "Project Manager",
-      image: "/images/team4.jpg",
-      bio: "Ensuring seamless execution of all installations"
+      bio: "Expert in project management and risk assessment for large-scale installations"
     }
   ];
 
