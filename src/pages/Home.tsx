@@ -6,7 +6,7 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
-      image: "/images/slide1.jpg",
+      image: "/images/slide1.png",
       title: "Cutting-Edge Network Solutions",
       subtitle: "Enterprise-grade infrastructure for your business"
     },
