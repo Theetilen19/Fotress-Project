@@ -1,15 +1,20 @@
-//import React from 'react';
+import React, { useState } from 'react';
+import '../Project.css';
+import { FiMapPin, FiCalendar } from 'react-icons/fi';
 
 const Projects = () => {
-  const gallery = [
+  const [activeTab, setActiveTab] = useState<'all' | 'ongoing' | 'completed'>('all');
+
+  const projects = [
     {
       id: 1,
       title: "Corporate Office Network",
       location: "Nairobi, Kenya",
       description: "Complete wired and wireless network installation for a 10-story office building with 500+ endpoints.",
       category: "Networking",
-      image: "/images/office-network.jpg",
-      date: "2023-05-15"
+      image: "/images/projects/office-network.jpg",
+      date: "2023-05-15",
+      status: "completed"
     },
     {
       id: 2,
@@ -17,8 +22,9 @@ const Projects = () => {
       location: "Mombasa, Kenya",
       description: "20km fiber optic deployment connecting business district to main data center with redundant links.",
       category: "ISP",
-      image: "/images/fiber-optic.jpg",
-      date: "2023-08-22"
+      image: "/images/projects/fiber-optic.jpg",
+      date: "2023-08-22",
+      status: "completed"
     },
     {
       id: 3,
@@ -26,8 +32,9 @@ const Projects = () => {
       location: "Kisumu, Kenya",
       description: "50kW solar panel installation with battery backup for a manufacturing facility.",
       category: "Electrical",
-      image: "/images/solar-panel.jpg",
-      date: "2023-11-05"
+      image: "/images/projects/solar-panel.jpg",
+      date: "2023-11-05",
+      status: "completed"
     },
     {
       id: 4,
@@ -35,8 +42,9 @@ const Projects = () => {
       location: "Nakuru, Kenya",
       description: "Integrated CCTV and access control system for a university campus with 200+ cameras.",
       category: "Security",
-      image: "/images/cctv.jpg",
-      date: "2024-01-18"
+      image: "/images/projects/cctv.jpg",
+      date: "2024-01-18",
+      status: "ongoing"
     },
     {
       id: 5,
@@ -44,8 +52,9 @@ const Projects = () => {
       location: "Nairobi, Kenya",
       description: "Structured cabling for Tier III data center with 1000+ network drops and fiber channels.",
       category: "Electrical",
-      image: "/images/data-center.jpg",
-      date: "2024-03-30"
+      image: "/images/projects/data-center.jpg",
+      date: "2024-03-30",
+      status: "ongoing"
     },
     {
       id: 6,
@@ -53,48 +62,79 @@ const Projects = () => {
       location: "Eldoret, Kenya",
       description: "Wireless tower setup providing broadband coverage to 5km radius residential area.",
       category: "ISP",
-      image: "/images/wireless-tower.jpg",
-      date: "2024-05-12"
+      image: "/images/projects/wireless-tower.jpg",
+      date: "2024-05-12",
+      status: "ongoing"
     }
   ];
 
+  const filteredProjects = projects.filter(project => {
+    if (activeTab === 'all') return true;
+    return project.status === activeTab;
+  });
+
   return (
-    <div className="py-12 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Our Completed Projects</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore our portfolio of successful installations and deployments across Kenya
+    <div className="projects-root">
+      <div className="projects-container">
+        <div className="projects-header">
+          <h1 className="projects-title">Our Projects</h1>
+          <p className="projects-subtitle">
+            Explore our portfolio of successful and ongoing installations across Kenya
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {gallery.map((project) => (
-            <div key={project.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 overflow-hidden">
+        <div className="projects-tabs">
+          <button 
+            className={`projects-tab ${activeTab === 'all' ? 'active' : ''}`}
+            onClick={() => setActiveTab('all')}
+          >
+            All Projects
+          </button>
+          <button 
+            className={`projects-tab ${activeTab === 'ongoing' ? 'active' : ''}`}
+            onClick={() => setActiveTab('ongoing')}
+          >
+            Ongoing
+          </button>
+          <button 
+            className={`projects-tab ${activeTab === 'completed' ? 'active' : ''}`}
+            onClick={() => setActiveTab('completed')}
+          >
+            Completed
+          </button>
+        </div>
+
+        <div className="projects-grid">
+          {filteredProjects.map((project) => (
+            <div key={project.id} className="project-card">
+              <div className="project-image-container">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="project-image"
                 />
+                <span className={`project-badge ${project.status}`}>
+                  {project.status === 'completed' ? 'Completed' : 'Ongoing'}
+                </span>
               </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
-                  <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-                    {project.category}
-                  </span>
+              <div className="project-content">
+                <div className="project-header">
+                  <h3 className="project-title">{project.title}</h3>
+                  <span className="project-category">{project.category}</span>
                 </div>
-                <div className="flex items-center text-gray-600 mb-3">
-                  <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="text-sm">{project.location}</span>
+                <div className="project-meta">
+                  <FiMapPin />
+                  <span>{project.location}</span>
                 </div>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="text-sm text-gray-500">
-                  Completed: {new Date(project.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                <p className="project-description">{project.description}</p>
+                <div className="project-footer">
+                  <div className="project-status">
+                    <div className={`project-status-dot ${project.status}`} />
+                    <span>{project.status === 'completed' ? 'Completed' : 'In Progress'}</span>
+                  </div>
+                  <div className="project-date">
+                    <FiCalendar /> {new Date(project.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+                  </div>
                 </div>
               </div>
             </div>

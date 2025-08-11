@@ -1,0 +1,188 @@
+/* service.css */
+.services-root {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+    padding: 4rem 0;
+  }
+  
+  .services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .services-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  
+  .services-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+  }
+  
+  .services-subtitle {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .services-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .service-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-card-header {
+    padding: 1.5rem;
+    background: linear-gradient(to right, #3b82f6, #10b981);
+    color: white;
+  }
+  
+  .service-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .service-card-body {
+    padding: 1.5rem;
+  }
+  
+  .service-feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .service-feature-icon {
+    color: #10b981;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+  
+  .service-feature-text {
+    color: #475569;
+    line-height: 1.6;
+  }
+  
+  .service-links {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+  }
+  
+  .service-link {
+    display: flex;
+    align-items: center;
+    color: #3b82f6;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s ease;
+  }
+  
+  .service-link:hover {
+    color: #2563eb;
+    transform: translateX(5px);
+  }
+  
+  .service-link-icon {
+    margin-right: 0.5rem;
+    transition: all 0.2s ease;
+  }
+  
+  .services-cta {
+    background: linear-gradient(to right, #3b82f6, #10b981);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    margin-top: 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .services-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .services-cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .services-cta-text {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  
+  .services-cta-button {
+    background: white;
+    color: #3b82f6;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .services-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .services-cta-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .service-card {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .service-card:nth-child(1) { animation-delay: 0.1s; }
+  .service-card:nth-child(2) { animation-delay: 0.2s; }
+  .service-card:nth-child(3) { animation-delay: 0.3s; }
+  .services-cta { animation: fadeIn 0.6s ease-out 0.4s forwards; opacity: 0; }

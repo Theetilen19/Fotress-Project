@@ -1,70 +1,113 @@
+//import React from 'react';
+import '../Service.css';
+import { FiCheck, FiArrowRight, FiZap, FiWifi, FiTool } from 'react-icons/fi';
+
 const Services = () => {
-    const services = [
-      {
-        title: "Tech Services",
-        items: [
-          "Network Installation & Configuration",
-          "CCTV & Security Systems",
-          "Structured Cabling",
-          "Smart Home Automation",
-          "IT Support & Maintenance"
-        ]
-      },
-      {
-        title: "ISP Solutions",
-        items: [
-          "Fiber Optic Installation",
-          "Wireless Internet Solutions",
-          "Enterprise Network Solutions",
-          "Bandwidth Management",
-          "24/7 Technical Support"
-        ]
-      },
-      {
-        title: "Electrical Services",
-        items: [
-          "Electrical Wiring & Rewiring",
-          "Solar Power Installation",
-          "DB Board Installation",
-          "Electrical Safety Audits",
-          "Emergency Repairs"
-        ]
-      }
-    ];
-  
-    return (
-      <div className="py-12">
-        <div className="container mx-auto">
-          <h1 className="text-4xl font-bold mb-12 text-center">Our Services</h1>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <h2 className="text-2xl font-bold mb-4 text-blue-800">{service.title}</h2>
-                <ul className="space-y-2">
+  const services = [
+    {
+      icon: <FiZap size={24} />,
+      title: "Tech Services",
+      items: [
+        "Network Installation & Configuration",
+        "CCTV & Security Systems",
+        "Structured Cabling",
+        "Smart Home Automation",
+        "IT Support & Maintenance"
+      ],
+      links: [
+        { text: "Learn more about networks", url: "#" },
+        { text: "Security solutions", url: "#" },
+        { text: "See our portfolio", url: "#" }
+      ]
+    },
+    {
+      icon: <FiWifi size={24} />,
+      title: "ISP Solutions",
+      items: [
+        "Fiber Optic Installation",
+        "Wireless Internet Solutions",
+        "Enterprise Network Solutions",
+        "Bandwidth Management",
+        "24/7 Technical Support"
+      ],
+      links: [
+        { text: "Fiber packages", url: "#" },
+        { text: "Business solutions", url: "#" },
+        { text: "Support plans", url: "#" }
+      ]
+    },
+    {
+      icon: <FiTool size={24} />,
+      title: "Electrical Services",
+      items: [
+        "Electrical Wiring & Rewiring",
+        "Solar Power Installation",
+        "DB Board Installation",
+        "Electrical Safety Audits",
+        "Emergency Repairs"
+      ],
+      links: [
+        { text: "Solar solutions", url: "#" },
+        { text: "Safety standards", url: "#" },
+        { text: "Emergency contacts", url: "#" }
+      ]
+    }
+  ];
+
+  return (
+    <div className="services-root">
+      <div className="services-container">
+        <div className="services-header">
+          <h1 className="services-title">Our Services</h1>
+          <p className="services-subtitle">
+            Comprehensive solutions tailored to power your business and connect your world
+          </p>
+        </div>
+        
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div key={index} className="service-card">
+              <div className="service-card-header">
+                <div className="service-card-title">{service.title}</div>
+              </div>
+              <div className="service-card-body">
+                <ul>
                   {service.items.map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-blue-500 mr-2">✓</span>
-                      <span>{item}</span>
+                    <li key={i} className="service-feature">
+                      <FiCheck className="service-feature-icon" />
+                      <span className="service-feature-text">{item}</span>
                     </li>
                   ))}
                 </ul>
+                
+                <div className="service-links">
+                  {service.links.map((link, i) => (
+                    <a key={i} href={link.url} className="service-link">
+                      <FiArrowRight className="service-link-icon" />
+                      {link.text}
+                    </a>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
-  
-          <div className="mt-16 bg-blue-50 p-8 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Need a custom solution?</h2>
-            <p className="mb-6">
-              Our team can design and implement tailored solutions to meet your specific requirements.
+            </div>
+          ))}
+        </div>
+
+        <div className="services-cta">
+          <div className="services-cta-pattern"></div>
+          <div className="services-cta-content">
+            <h3 className="services-cta-title">Need a custom solution?</h3>
+            <p className="services-cta-text">
+              Our experts can design and implement tailored solutions to meet your specific requirements.
             </p>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded">
-              Request a Quote
+            <button className="services-cta-button">
+              Request a Quote <FiArrowRight className="ml-2" />
             </button>
           </div>
         </div>
       </div>
-    );
-  };
-  
-  export default Services;
+    </div>
+  );
+};
+
+export default Services;
