@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../Gallery.css';
 import { FiArrowRight, FiX } from 'react-icons/fi';
+
+interface GalleryItem {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+}
 
 const Gallery = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState('');
+  const [currentImageDetails, setCurrentImageDetails] = useState<Omit<GalleryItem, 'id'>>({
+    title: '',
+    category: '',
+    image: '',
+    description: ''
+  });
 
-  const gallery = [
+  const gallery: GalleryItem[] = [
     { 
       id: 1, 
       title: "Corporate Office Network", 
@@ -51,8 +65,14 @@ const Gallery = () => {
     }
   ];
 
-  const openLightbox = (image: string) => {
-    setCurrentImage(image);
+  const openLightbox = (item: GalleryItem) => {
+    setCurrentImage(item.image);
+    setCurrentImageDetails({
+      title: item.title,
+      category: item.category,
+      image: item.image,
+      description: item.description
+    });
     setLightboxOpen(true);
   };
 
@@ -75,21 +95,22 @@ const Gallery = () => {
             <div key={project.id} className="gallery-item">
               <div 
                 className="gallery-image-container"
-                onClick={() => openLightbox(project.image)}
+                onClick={() => openLightbox(project)}
               >
                 <img 
                   src={project.image} 
                   alt={project.title}
                   className="gallery-image"
+                  loading="lazy"
                 />
                 <span className="gallery-category">{project.category}</span>
               </div>
               <div className="gallery-content">
                 <h3 className="gallery-item-title">{project.title}</h3>
                 <p className="gallery-item-description">{project.description}</p>
-                <a href="#" className="gallery-view-more">
+                <button className="gallery-view-more">
                   View project details <FiArrowRight />
-                </a>
+                </button>
               </div>
             </div>
           ))}
@@ -99,14 +120,23 @@ const Gallery = () => {
       {/* Lightbox */}
       <div className={`gallery-lightbox ${lightboxOpen ? 'active' : ''}`}>
         <div className="lightbox-content">
-          <button className="lightbox-close" onClick={closeLightbox}>
+          <button 
+            className="lightbox-close" 
+            onClick={closeLightbox}
+            aria-label="Close lightbox"
+          >
             <FiX />
           </button>
           <img 
             src={currentImage} 
-            alt="Enlarged view" 
+            alt={currentImageDetails.title} 
             className="lightbox-image"
           />
+          <div className="lightbox-details">
+            <h3>{currentImageDetails.title}</h3>
+            <span className="lightbox-category">{currentImageDetails.category}</span>
+            <p>{currentImageDetails.description}</p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../Project.css';
 import { FiMapPin, FiCalendar } from 'react-icons/fi';
+
+interface Project {
+  id: number;
+  title: string;
+  location: string;
+  description: string;
+  category: string;
+  image: string;
+  date: string;
+  status: 'ongoing' | 'completed';
+}
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'ongoing' | 'completed'>('all');
 
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
       title: "Corporate Office Network",
@@ -87,18 +98,21 @@ const Projects = () => {
           <button 
             className={`projects-tab ${activeTab === 'all' ? 'active' : ''}`}
             onClick={() => setActiveTab('all')}
+            aria-label="Show all projects"
           >
             All Projects
           </button>
           <button 
             className={`projects-tab ${activeTab === 'ongoing' ? 'active' : ''}`}
             onClick={() => setActiveTab('ongoing')}
+            aria-label="Show ongoing projects"
           >
             Ongoing
           </button>
           <button 
             className={`projects-tab ${activeTab === 'completed' ? 'active' : ''}`}
             onClick={() => setActiveTab('completed')}
+            aria-label="Show completed projects"
           >
             Completed
           </button>
@@ -112,6 +126,7 @@ const Projects = () => {
                   src={project.image} 
                   alt={project.title}
                   className="project-image"
+                  loading="lazy"
                 />
                 <span className={`project-badge ${project.status}`}>
                   {project.status === 'completed' ? 'Completed' : 'Ongoing'}

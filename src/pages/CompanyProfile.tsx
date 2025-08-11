@@ -1,4 +1,3 @@
-import React from 'react';
 import '../CompanyProfile.css';
 import { FiDownload, FiFileText, FiMail } from 'react-icons/fi';
 
