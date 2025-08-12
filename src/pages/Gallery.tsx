@@ -25,21 +25,21 @@ const Gallery = () => {
       id: 1, 
       title: "Corporate Office Network", 
       category: "Networking", 
-      image: "/images/projects/office-network.jpg",
+      image: "/images/slide1.png",
       description: "Complete wired and wireless network installation for a 10-story office complex."
     },
     { 
       id: 2, 
       title: "Fiber Optic Backbone", 
       category: "ISP", 
-      image: "/images/projects/fiber-optic.jpg",
+      image: "/images/FiberOptic.jpg",
       description: "High-speed fiber optic infrastructure deployment across business district."
     },
     { 
       id: 3, 
       title: "Solar Power System", 
       category: "Electrical", 
-      image: "/images/projects/solar-panel.jpg",
+      image: "/images/SolarSystem.jpg",
       description: "Sustainable solar energy solution for industrial facility with battery backup."
     },
     { 
@@ -53,7 +53,7 @@ const Gallery = () => {
       id: 5, 
       title: "Data Center Wiring", 
       category: "Electrical", 
-      image: "/images/projects/data-center.jpg",
+      image: "/images/DataCenter.jpg",
       description: "Structured cabling solution for high-availability data center environment."
     },
     { 

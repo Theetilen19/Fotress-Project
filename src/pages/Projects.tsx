@@ -63,7 +63,7 @@ const Projects = () => {
       location: "Nairobi, Kenya",
       description: "Structured cabling for Tier III data center with 1000+ network drops and fiber channels.",
       category: "Electrical",
-      image: "/images/projects/data-center.jpg",
+      image: "/images/DataCenter.jpg",
       date: "2024-03-30",
       status: "ongoing"
     },
