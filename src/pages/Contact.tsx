@@ -144,17 +144,17 @@ const Contact = () => {
             <div className="info-item">
               <h3 className="info-title"><FiMapPin /> Office Address</h3>
               <p className="info-content">
-                123 Tech Street, Westlands<br />
-                Nairobi, Kenya
+                80100, Mombasa<br />
+                Mombasa, Kenya
               </p>
             </div>
 
             <div className="info-item">
               <h3 className="info-title"><FiPhone /> Contact Numbers</h3>
               <p className="info-content">
-                Main: +254 700 000000<br />
-                Support: +254 711 000000<br />
-                Emergency: +254 722 000000
+                Main: +254 729 596966<br />
+                Support: +254 111 324234<br />
+                Emergency: +254 114 450758
               </p>
             </div>
 

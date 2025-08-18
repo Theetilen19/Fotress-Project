@@ -48,6 +48,9 @@ const Footer = () => {
               <li className="footer__link-item">
                 <Link to="/contact" className="footer__link">Contact</Link>
               </li>
+              <li className="footer__link-item">
+                <Link to="/profile" className="footer__link">Company Profile</Link>
+              </li>
             </ul>
           </div>
 
